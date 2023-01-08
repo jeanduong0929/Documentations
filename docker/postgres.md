@@ -13,7 +13,7 @@ docker pull [OPTIONS] NAME[:TAG|@DIGEST]
 
 <br>
 
-### How To Create Image Container
+### Create Image Container
 
 docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
@@ -26,7 +26,7 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 <br>
 
-### How To List Containers
+### List Containers
 
 #### Running Containers
 
@@ -37,7 +37,7 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 <br>
 
-### How To Start Container
+### Start Container
 
 docker start [OPTIONS] CONTAINER [CONTAINER...]
 
