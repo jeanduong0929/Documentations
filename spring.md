@@ -114,8 +114,6 @@ public class User {
 }
 ```
 
-<br>
-
 #### One To Many
 
 ```java
@@ -174,7 +172,7 @@ public class Product {
 
 <br>
 
-### Many To Many (Junction Table)
+#### Many To Many (Junction Table)
 
 ```java
 // Products -> junction table <- Sizes (see Sizes code below)
