@@ -81,7 +81,7 @@ public class AuthController {
 
 @Service // to indicate that they're holding the business logic
 public class UserService {
-    
+
 }
 ```
 
@@ -89,33 +89,135 @@ public class UserService {
 
 ```java
 
-@Repository // to catch persistence-specific exceptions and re-throw them as one of Spring’s unified unchecked exceptions.
+@Repository
+// to catch persistence-specific exceptions and re-throw them as one of Spring’s unified unchecked exceptions.
 public interface UserRepository extends CrudRepository<User, String> {
-    
+
 }
 ```
 
 ### Entities
 
-
 ```java
 
 @Entity
-@Table("users")
+@Table(name = "users")
 public class User {
     @Id
     private String id;
 
-    @Column(name = "username")
+    @Column(name = "username", nullable = false)
     private String username;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
-
-    @Column(name = "role")
-    private String role;
 }
 ```
+
+<br>
+
+#### One To Many
+
+```java
+public class Category {
+  @Id
+  private String id;
+
+  @Column(name = "name", nullable = false)
+  private String name;
+
+  @OneToMany(
+          cascade = CascadeType.ALL,
+          fetch = FetchType.EAGER,
+          mappedBy = "category"
+  )
+  @JsonManagedReference // parent
+  private List<Product> products; // one to many
+}
+
+```
+
+- `cascade = CascadeType.ALL` deletes table without fk violation
+- `fetch = FetchType.EAGER` fetch all the data relating to the parent
+- `mappedBy = "category"` to define the referencing side (
+  non-owning side) of the relationship.
+- `@JsonManagedReference` for application/json (owning side/parent)
+
+<br>
+
+#### Many To One
+
+```java
+public class Product {
+    @Id
+    private String id;
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "prices", nullable = false)
+    private BigDecimal prices;
+
+    @ManyToOne
+    @JoinColumn(
+            name = "category_id",
+            nullable = false
+    )
+    @JsonBackReference // child
+    private Category category; // category = mappedBy on parent side
+}
+```
+
+- `@JoinColumn(...)` essentially references foreign key to primary key
+- `name = "category_id"` column name
+- `@JsonBackReference` for application/json (non-owning side/child)
+
+<br>
+
+### Many To Many (Junction Table)
+
+```java
+// Products -> junction table <- Sizes (see Sizes code below)
+public class Product {
+    @Id
+    private String id;
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "prices", nullable = false)
+    private BigDecimal prices;
+
+    @ManyToMany
+    @JoinTable( // create junction table
+            name = "products_sizes", // name of junction table
+            joinColumns = {@JoinColumn(name = "product_id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "size_id", nullable = false)}
+    )
+    @JsonManagedReference // parent
+    private Set<Size> sizes; // only unique objects
+}
+```
+
+- `@JoinTable(...)` create junction table (requires `joinColumns & inverseJoinColumns to make junction table)
+  - `name` = junction table name
+  - `joinColumns = {...}` map primary keys to junction table foreign keys (first primary key)
+  - `inverseJoinColumns = {...}` map primary keys to junction table foreign keys (second primary key)
+
+
+```java
+public class Size {
+    @ManyToMany(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY,
+            mappedBy = "sizes"
+    )
+    @JsonBackReference
+    private Set<Product> products;
+}
+```
+
+<br>
 
 ### Components
 
@@ -123,6 +225,6 @@ public class User {
 
 @Component // to mark the beans as Spring's managed components
 public class JwtConfig {
-    
+
 }
 ```
