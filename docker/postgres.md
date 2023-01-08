@@ -26,18 +26,18 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 <br>
 
-## How To List Containers
+### How To List Containers
 
-### Running Containers
+#### Running Containers
 
 **Example** `docker ps`
 
-### Hidden Containers
+#### Hidden Containers
 **Example** `docker ps -a`
 
 <br>
 
-## How To Start Container
+### How To Start Container
 
 docker start [OPTIONS] CONTAINER [CONTAINER...]
 
@@ -45,7 +45,7 @@ docker start [OPTIONS] CONTAINER [CONTAINER...]
 
 <br>
 
-## Stop Docker Container
+### Stop Docker Container
 
 docker stop [OPTIONS] CONTAINER [CONTAINER...]
 
@@ -53,7 +53,7 @@ Example: ```docker stop my_container```
 
 <br>
 
-## Remove Docker Container
+### Remove Docker Container
 
 docker rm [OPTIONS] CONTAINER [CONTAINER...]
 
@@ -61,13 +61,13 @@ docker rm [OPTIONS] CONTAINER [CONTAINER...]
 
 <br>
 
-## See Docker Images
+### See Docker Images
 
 ```docker image ls```
 
 <br>
 
-## Remove Docker images
+### Remove Docker images
 
 docker image rm [OPTIONS] IMAGE [IMAGE...]
 
