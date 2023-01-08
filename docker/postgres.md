@@ -11,6 +11,8 @@ docker pull [OPTIONS] NAME[:TAG|@DIGEST]
 **Example:**
 ```docker pull postgres:latest```
 
+<br>
+
 ### How To Create Image Container
 
 docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
@@ -22,6 +24,8 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 - ```-e: set env variable```
 - ```-d: detach from container```
 
+<br>
+
 ## How To List Containers
 
 ### Running Containers
@@ -31,11 +35,15 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 ### Hidden Containers
 **Example** `docker ps -a`
 
+<br>
+
 ## How To Start Container
 
 docker start [OPTIONS] CONTAINER [CONTAINER...]
 
 **Example:** ```docker start my_container```
+
+<br>
 
 ## Stop Docker Container
 
@@ -43,15 +51,21 @@ docker stop [OPTIONS] CONTAINER [CONTAINER...]
 
 Example: ```docker stop my_container```
 
+<br>
+
 ## Remove Docker Container
 
 docker rm [OPTIONS] CONTAINER [CONTAINER...]
 
 **Example:** ```docker rm my_container```
 
+<br>
+
 ## See Docker Images
 
 ```docker image ls```
+
+<br>
 
 ## Remove Docker images
 
@@ -59,9 +73,7 @@ docker image rm [OPTIONS] IMAGE [IMAGE...]
 
 **Example:** ```docker image rm postgres```
 
-## See Docker Containers
-
-docker container ls [OPTIONS]
+<br>
 
 ## Postgres
 
