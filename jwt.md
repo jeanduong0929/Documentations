@@ -1,6 +1,17 @@
 # Json Web Token
 
-**Important:** works with Java 8 and Spring Boot 2.7.4 
+**Important:** works with Java 8 and Spring Boot 2.7.4
+
+## Dependency
+
+```xml
+<!-- need this for java 8+ -->
+<dependency>
+    <groupId>javax.xml.bind</groupId>
+    <artifactId>jaxb-api</artifactId>
+    <version>2.4.0-b180830.0359</version>
+</dependency>
+```
 
 ## JwtConfig
 
