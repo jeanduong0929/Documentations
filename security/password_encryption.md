@@ -1,7 +1,7 @@
 # Password Encryption
 
 ---
-## Security Service
+## Salt Key and Hashing Algorithm
 
 ```java
 public class SecurityService {
@@ -26,7 +26,8 @@ public class SecurityService {
 ## Validate Login
 
 ```java
-public Optional<Principal> validateLogin(LoginRequest req) {
+public class SecurityService {
+    public Optional<Principal> validateLogin(LoginRequest req) {
         return userRepo.findAll()
                 .stream()
                 .filter(u -> {
@@ -42,4 +43,5 @@ public Optional<Principal> validateLogin(LoginRequest req) {
                 }).findFirst()
                 .map(Principal::new);
     }
+}
 ```

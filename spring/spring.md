@@ -68,10 +68,17 @@ public class Main {
 
 ```java
 
+@CrossOrigin // expose endpoints to public
 @RestController // specify that this class is a rest controller
 @RequestMapping("/auth") // this controller is mapped to path /auth
 public class AuthController {
     // the controller handles all the endpoint requests
+  
+  // additional mapping
+  @PostMapping("/login")
+  public Principal login(@RequestBody LoginRequest) {
+    ...
+  }
 }
 ```
 
@@ -80,6 +87,7 @@ public class AuthController {
 ```java
 
 @Service // to indicate that they're holding the business logic
+@Transactional // making save or update
 public class UserService {
 
 }
@@ -89,8 +97,7 @@ public class UserService {
 
 ```java
 
-@Repository
-// to catch persistence-specific exceptions and re-throw them as one of Spring’s unified unchecked exceptions.
+@Repository // to catch persistence-specific exceptions and re-throw them as one of Spring’s unified unchecked exceptions.
 public interface UserRepository extends CrudRepository<User, String> {
 
 }
@@ -189,8 +196,8 @@ public class Product {
     @ManyToMany
     @JoinTable( // create junction table
             name = "products_sizes", // name of junction table
-            joinColumns = {@JoinColumn(name = "product_id", nullable = false)},
-            inverseJoinColumns = {@JoinColumn(name = "size_id", nullable = false)}
+            joinColumns = {@JoinColumn(name = "product_id", referencedColumnName = "id", nullable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "size_id", referencedColumnName = "id", nullable = false)}
     )
     @JsonManagedReference // parent
     private Set<Size> sizes; // only unique objects
