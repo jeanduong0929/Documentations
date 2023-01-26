@@ -60,6 +60,63 @@ export default Router;
 
 ---
 
+## Context
+
+### AuthProvider.tsx
+
+```typescript
+// A 'provider' allows us to pass state from one component to another
+
+export const AuthContext = createContext<Auth | null>(null);
+export const SetAuthContext = createContext<Function | null>(null);
+
+// Like the name suggest, AuthProvider provides the auth and setAuth so you can use it
+// in other components
+const AuthProvider = ({ children }: any) => {
+  const [auth, setAuth] = useState<Auth | null>(null);
+
+  return(
+    <AuthContext.Provider value={auth}>
+      <SetAuthContext.Provider value={setAuth}>
+        // The children are the components wrapped inside AuthProvider
+        {children}
+      </SetAuthContext>
+    </AuthContext>
+  )
+};
+
+export default AuthProvider;
+```
+
+### Using AuthProvider
+
+#### Wrapping
+
+```typescript
+function App() {
+  return (
+    <div className="App">
+      <AuthProvider>
+        <Nav />
+        <Router />
+        <ToastContainer />
+      </AuthProvider>
+    </div>
+  );
+}
+
+export default App;
+```
+
+#### Initializing AuthContext And SetAuthContext
+
+```typescript
+const auth = useContext<Auth | null>(AuthContext);
+const setAuth = useContext<Function | null>(SetAuthContext);
+```
+
+---
+
 ## Useful Functions
 
 ### Spread Operator
