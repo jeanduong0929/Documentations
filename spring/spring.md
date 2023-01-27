@@ -54,9 +54,9 @@ spring:
 ```properties
 # Where the application is hosted on.
 server.port=8080
-server.servlet.context-path=/invincible
+server.servlet.context-path=</path>
 
-spring.application.name=invincible
+spring.application.name=<application_name>
 spring.datasource.driver-class-name=org.postgresql.Driver
 spring.datasource.url=<db_url>
 spring.datasource.username=<db_username>
