@@ -49,6 +49,23 @@ spring:
       # hibernate will drop and create your tables whenever you start your application.
       ddl-auto: create-drop
 ```
+## Application Properties Configuration
+
+```properties
+# Where the application is hosted on.
+server.port=8080
+server.servlet.context-path=/invincible
+
+spring.application.name=invincible
+spring.datasource.driver-class-name=org.postgresql.Driver
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres?currentSchema=inv
+spring.datasource.username=postgres
+spring.datasource.password=B@oduong1
+spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.show-sql: true
+# hibernate will drop and create your tables whenever you start your application
+spring.jpa.hibernate.ddl-auto=create-drop  
+```
 
 ## Spring AOP
 

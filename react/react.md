@@ -58,6 +58,61 @@ const Router = () => {
 export default Router;
 ```
 
+### Path Param
+
+#### Router.tsx
+
+```typescript
+const Router = () => {
+  return(
+    <Routes>
+      // Parent route
+      <Route path="/" element={<Layout />} >
+        <Route path = "/collection/:id" element={<Collection /> } />
+      <Route />
+    </Routes>
+  )
+}
+
+export default Router;
+
+```
+
+#### useParam Hook
+
+```typescript
+// Naming needs to match the specify path above
+const { id } = useParam();
+```
+
+---
+
+## Hooks
+
+### useEffect
+
+useEffect hook runs at the start of a component lifecycle. It can be triggered multiple time via state dependency
+
+#### Not Dependent On State
+
+```typescript
+// Not dependent hence the empty array
+useEffect(() => {
+  console.log("I am not dependent on anyone!");
+}, []);
+```
+
+#### Dependent On State
+
+```typescript
+const [foo, setFoo] = useState<number>(0);
+
+// Will invoke whenever `foo` changes.
+useEffect(() => {
+  console.log("I am dependent on foo!");
+}, [foo]); // foo is inside the array
+```
+
 ---
 
 ## Context
