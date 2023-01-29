@@ -49,6 +49,7 @@ spring:
       # hibernate will drop and create your tables whenever you start your application.
       ddl-auto: create-drop
 ```
+
 ## Application Properties Configuration
 
 ```properties
@@ -64,7 +65,7 @@ spring.datasource.password=<db_password>
 spring.jpa.database-platform: org.hibernate.dialect.PostgreSQLDialect
 spring.jpa.show-sql: true
 # hibernate will drop and create your tables whenever you start your application
-spring.jpa.hibernate.ddl-auto=create-drop  
+spring.jpa.hibernate.ddl-auto=create-drop
 ```
 
 ## Spring AOP
@@ -90,7 +91,7 @@ public class Main {
 @RequestMapping("/auth") // this controller is mapped to path /auth
 public class AuthController {
     // the controller handles all the endpoint requests
-  
+
   // additional mapping
   @PostMapping("/login")
   public Principal login(@RequestBody LoginRequest) {
@@ -118,6 +119,14 @@ public class UserService {
 public interface UserRepository extends CrudRepository<User, String> {
 
 }
+```
+
+#### Native Query
+
+```java
+@Modifying
+@Query(value = "INSERT INTO in_category (id, category) VALUES (?1 , ?2)", nativeQuery = true)
+void addCategory(String id, String category);
 ```
 
 ### Entities
@@ -225,7 +234,6 @@ public class Product {
   - `name` = junction table name
   - `joinColumns = {...}` map primary keys to junction table foreign keys (first primary key)
   - `inverseJoinColumns = {...}` map primary keys to junction table foreign keys (second primary key)
-
 
 ```java
 public class Size {
