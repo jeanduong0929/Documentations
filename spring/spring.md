@@ -55,13 +55,13 @@ spring:
 ```properties
 # Where the application is hosted on.
 server.port=8080
-server.servlet.context-path=/invincible
+server.servlet.context-path=/path
 
-spring.application.name=invincible
+spring.application.name=application_name
 spring.datasource.driver-class-name=org.postgresql.Driver
-spring.datasource.url=jdbc:postgresql://localhost:5432/postgres?currentSchema=inv
-spring.datasource.username=postgres
-spring.datasource.password=B@oduong1
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres?
+spring.datasource.username=username
+spring.datasource.password=password
 spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
 spring.jpa.show-sql=true
 # hibernate will drop and create your tables whenever you start your application
