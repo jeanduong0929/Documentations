@@ -1,6 +1,6 @@
 # Postman
 
-## Setting Environment Variable
+## Setting Environment Variable From Json Reponse
 
 Put this block of code under "Test"
 
