@@ -21,9 +21,9 @@ Here's an example of a basic HTML document:
 </html>
 ```
 
-In this example, the <!DOCTYPE html> tag tells the web browser that the document is an HTML document. The <html> tag marks the beginning of the HTML document, and the <head> and <body> tags define the different parts of the page. The <title> tag sets the title of the page, which appears in the browser's title bar.
+In this example, the `<!DOCTYPE html>` tag tells the web browser that the document is an HTML document. The `<html>` tag marks the beginning of the HTML document, and the `<head>` and `<body>` tags define the different parts of the page. The `<title>` tag sets the title of the page, which appears in the browser's title bar.
 
-The <h1> tag defines a heading, and the <p> tag defines a paragraph. There are many other HTML tags that can be used to structure a web page, including lists, tables, forms, and more.
+The `<h1>` tag defines a heading, and the `<p>` tag defines a paragraph. There are many other HTML tags that can be used to structure a web page, including lists, tables, forms, and more.
 
 ### CSS
 
@@ -38,7 +38,7 @@ h1 {
 }
 ```
 
-In this example, the h1 selector targets all <h1> tags on the page. The color property sets the color of the text to blue, and the font-size property sets the font size to 24 pixels. There are many other CSS properties that can be used to style HTML elements, including background color, border, padding, and more.
+In this example, the h1 selector targets all `<h1>` tags on the page. The color property sets the color of the text to blue, and the font-size property sets the font size to 24 pixels. There are many other CSS properties that can be used to style HTML elements, including background color, border, padding, and more.
 
 ### Conclusion
 
