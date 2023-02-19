@@ -31,7 +31,7 @@ CSS is used to style the content of a web page. It allows you to control the app
 
 Here's an example of a basic CSS rule:
 
-```CSS
+```css
 h1 {
   color: blue;
   font-size: 24px;
