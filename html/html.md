@@ -40,7 +40,7 @@ h1 {
 
 In this example, the h1 selector targets all `<h1>` tags on the page. The color property sets the color of the text to blue, and the `font-size` property sets the font size to 24 pixels. There are many other CSS properties that can be used to style HTML elements, including background color, border, padding, and more.
 
-### Importing css
+### Importing CSS
 
 To import a CSS file into an HTML document, you can use the `<link>` tag. The `<link>` tag is a self-closing tag that should be placed in the `<head>` section of your HTML document. Here's an example of how to link to a CSS file:
 
