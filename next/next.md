@@ -50,7 +50,7 @@ Headless UI works the best with Tailwindcss. Use Healdess UI for transition anim
 
 Make a div to wrap the modal. This div is for blurring out the background
 
-**NOTE:** If the modal is a child element, the parent element make have overflow-visible, so the child can overlap the parent
+**NOTE:** If the modal is a child element, the parent element make have `overflow-visible` so the child can overlap the parent
 
 ```typescript
 <div className="absolute | bg-gray-500 backdrop-blur-sm | w-full h-full | top-0 left-0">
