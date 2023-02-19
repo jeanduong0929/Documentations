@@ -38,7 +38,29 @@ h1 {
 }
 ```
 
-In this example, the h1 selector targets all `<h1>` tags on the page. The color property sets the color of the text to blue, and the font-size property sets the font size to 24 pixels. There are many other CSS properties that can be used to style HTML elements, including background color, border, padding, and more.
+In this example, the h1 selector targets all `<h1>` tags on the page. The color property sets the color of the text to blue, and the `font-size` property sets the font size to 24 pixels. There are many other CSS properties that can be used to style HTML elements, including background color, border, padding, and more.
+
+### Importing css
+
+To import a CSS file into an HTML document, you can use the `<link>` tag. The `<link>` tag is a self-closing tag that should be placed in the `<head>` section of your HTML document. Here's an example of how to link to a CSS file:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Web Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1>Welcome to my web page</h1>
+    <p>This is some example text.</p>
+  </body>
+</html>
+```
+
+In this example, the `<link>` tag is used to link to a CSS file named `styles.css`. The `rel` attribute specifies the relationship between the HTML document and the linked resource (in this case, a stylesheet), and the `type` attribute specifies the MIME type of the linked resource. The `href` attribute specifies the location of the linked resource (in this case, the filename of the CSS file).
+
+By linking to an external CSS file, you can keep your HTML and CSS code separate and more organized. This also allows you to reuse the same stylesheet across multiple pages of your website, making it easier to maintain a consistent design throughout your site.
 
 ### Conclusion
 
