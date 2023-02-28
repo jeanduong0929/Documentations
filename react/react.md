@@ -2,17 +2,23 @@
 
 ## Creating A Project
 
-`npx create-react-app <app_name> --template typescript`
+To create a new React project with TypeScript, run the following command:
 
----
+```lua
+npx create-react-app <app_name> --template typescript
+```
 
 ## Routing
 
-### Install library
+### Installation
 
-`npm i react-router-dom`
+To use routing in React, install the react-router-dom library:
 
-### How To Use
+```
+npm i react-router-dom
+```
+
+### Usage
 
 #### Index.tsx
 
@@ -58,7 +64,7 @@ const Router = () => {
 export default Router;
 ```
 
-### Path Param
+### Path Parameters
 
 #### Router.tsx
 
@@ -91,7 +97,7 @@ const { id } = useParam();
 
 ### useEffect
 
-useEffect hook runs at the start of a component lifecycle. It can be triggered multiple time via state dependency
+The useEffect hook runs at the start of a component lifecycle. It can be triggered multiple times via state dependency.
 
 #### Not Dependent On State
 
@@ -189,7 +195,7 @@ const [dropdown, setDropdown] = useState<boolean>(false);
 useEffect(() => {
   let handler = (event) => {
     // If the click is not on the dropdown (anywhere outside of the dropdown)
-    if (!myRef.current.contains(event.target.value)) {
+    if (!myRef.current.contains(event.target)) {
       setDropdown(false);
     }
   };
